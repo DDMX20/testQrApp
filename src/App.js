@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import QrCodeReader from "./Components/QrCodeReader/QrCodeReader";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import { Router, Route, Switch } from "react-router";
+import Home from "./Components/Home/Home";
+import QrCodeGenerator from "./Components/QrCodeGenerator/QrCodeGenerator";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App row  h-100">
+      <Switch>
+        {/* <Route path="/dashboard">
+          <WebLayout component={<Dashboard />} />
+        
+        </Route> */}
+
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/reader">
+          <QrCodeReader />
+        </Route>
+        <Route path="/maker">
+          <QrCodeGenerator />
+        </Route>
+      </Switch>
     </div>
   );
 }
