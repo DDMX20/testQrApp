@@ -57,13 +57,26 @@ const QrCodeGenerator = () => {
       </div>
       {showGeneratedQrCode && (
         <div>
-          <div id="QrCode" name="QrCode" className="col-12   mt-5 mb-5">
+          <div className="col-12 d-block d-lg-none  mt-5 mb-5">
             <QRCode
               value={QrCodeValue}
               style={{
                 borderRadius: "10px",
               }}
               size={250}
+              className="mx-auto"
+              includeMargin={true}
+              scale={2}
+              renderAs="svg"
+            ></QRCode>
+          </div>
+          <div className="col-12  d d-none d-lg-block  mt-5 mb-5">
+            <QRCode
+              value={QrCodeValue}
+              style={{
+                borderRadius: "10px",
+              }}
+              size={450}
               className="mx-auto"
               includeMargin={true}
               scale={2}
